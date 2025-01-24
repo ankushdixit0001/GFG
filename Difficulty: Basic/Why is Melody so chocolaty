@@ -1,0 +1,11 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/why-is-melody-so-chocolaty0446/1?page=1&sortBy=difficulty">Why is Melody so chocolaty?</a></h2><h3>Difficulty Level : Difficulty: Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 14pt;">Chunky gets happy by eating Melody. Given an array <strong>arr[]</strong>, each element represents the happiness Chunky gets by eating the melody.<br>Chunky knows why Melody is so chocolaty but will only tell you once you tell him the maximum happiness he can get by eating two adjacent melodies.</span></p>
+<p><span style="font-size: 14pt;"><strong>Examples:</strong></span></p>
+<pre><span style="font-size: 14pt;"><strong>Input :</strong> arr[] = [1, 2, 3, 4, 5]
+<strong>Output :</strong> 9
+<strong>Explanation: </strong>maximum happiness he can get is 9, selecting arr[3] = 4 and arr[4] = 5 which adds up to 9.
+</span></pre>
+<pre><span style="font-size: 14pt;"><strong>Input :</strong> arr[] = [2, 1, 3, 4]
+<strong>Output :</strong> 7
+<strong>Explanation: </strong>maximum happiness he can get is 7, selecting arr[2] = 3 and arr[3] = 4 which adds up to 7.</span></pre>
+<p><span style="font-size: 14pt;"><strong>Expected Time Complexity:</strong> O(n).<br><strong>Expected Auxiliary Space:</strong> O(1)</span></p>
+<p><span style="font-size: 14pt;"><strong>Constraints:</strong><br>2 ≤ arr.size() ≤ 10<sup>6</sup><br>0 ≤ arr[i] ≤ 10<sup>5</sup></span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Arrays</code>&nbsp;<code>Data Structures</code>&nbsp;
