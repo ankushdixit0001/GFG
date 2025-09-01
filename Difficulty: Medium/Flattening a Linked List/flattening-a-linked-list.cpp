@@ -1,16 +1,15 @@
-/* Node structure  used in the program
-
-struct Node{
+/*
+class Node {
+public:
     int data;
-    struct Node * next;
-    struct Node * bottom;
+    Node* next;
+    Node* bottom;
 
-    Node(int x){
+    Node(int x) {
         data = x;
         next = NULL;
         bottom = NULL;
     }
-
 };
 */
 
