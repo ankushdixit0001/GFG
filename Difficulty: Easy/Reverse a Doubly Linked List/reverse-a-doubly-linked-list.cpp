@@ -1,37 +1,34 @@
 /*
-class DLLNode {
+class Node {
   public:
     int data;
-    DLLNode *next;
-    DLLNode *prev;
-
-    DLLNode(int val) {
+    Node *next;
+    Node *prev;
+    Node(int val) {
         data = val;
-        this->next = NULL;
-        this->prev = NULL;
+        next = NULL;
+        prev = NULL;
     }
 };
+
 */
 class Solution {
   public:
-    // Function to reverse a doubly linked list
-    DLLNode* reverseDLL(DLLNode* head) {
-        // Your code here
-        if(!head){
-            return head;
-        }
-        DLLNode* temp=head;
-        DLLNode* prevNode=NULL;
+    Node *reverse(Node *head) {
+        // code here
+        if(!head||!head->next) return head;
+        
+        Node* temp=head;
+        Node* prevNode=NULL;
         while(temp){
-            DLLNode* nextNode=temp->next;
             //swap
+            Node* nextNode=temp->next;
             temp->next=prevNode;
             temp->prev=nextNode;
-            //update
+            
             prevNode=temp;
             temp=nextNode;
         }
-        head= prevNode;
-        return head;
+        return prevNode;
     }
 };
