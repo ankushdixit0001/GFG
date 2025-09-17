@@ -1,71 +1,47 @@
-//{ Driver Code Starts
-// Initial Template for C++
-
-#include <bits/stdc++.h>
-using namespace std;
-
-
-// } Driver Code Ends
-
-
 class Solution {
   public:
     string decodedString(string &s) {
         // code here
         stack<char> st;
-        for(int i=0;i<s.length();i++){
+        
+        for(int i=0;i<s.size();i++){
             if(s[i]!=']'){
                 st.push(s[i]);
             } else {
-                string temp;
+                string word;
                 while(!st.empty()&&st.top()!='['){
+                    word.push_back(st.top());
+                    st.pop();
+                }
+                reverse(word.begin(),word.end());
+                st.pop();
+                
+                string temp;
+                while(!st.empty()&&isdigit(st.top())){
                     temp.push_back(st.top());
                     st.pop();
                 }
                 reverse(temp.begin(),temp.end());
-                st.pop();
-                string num;
-                while(!st.empty() && isdigit(st.top())){
-                    num.push_back(st.top());
-                    st.pop();
+                int k=stoi(temp);
+                
+                string repeated;
+                for(int j=0;j<k;j++){
+                    repeated.append(word);
                 }
-                reverse(num.begin(),num.end());
-                int number=stoi(num);
-                string repeat;
-                for(int j=0;j<number;j++){
-                    repeat.append(temp);
-                }
-                for(char c:repeat){
-                    st.push(c);
+                
+                for(char ch:repeated){
+                    st.push(ch);
                 }
             }
         }
-        string ans;
+        string word;
         while(!st.empty()){
-            ans.push_back(st.top());
+            word.push_back(st.top());
             st.pop();
         }
-        reverse(ans.begin(),ans.end());
-        return ans;
+        
+        reverse(word.begin(),word.end());
+        
+        return word;
     }
 };
-
-
-//{ Driver Code Starts.
-
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        string s;
-        cin >> s;
-
-        Solution ob;
-        cout << ob.decodedString(s) << "\n";
-
-        cout << "~"
-             << "\n";
-    }
-    return 0;
-}
-// } Driver Code Ends
