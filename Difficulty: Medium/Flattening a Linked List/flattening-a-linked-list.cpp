@@ -15,44 +15,37 @@ public:
 
 class Solution {
   public:
-    Node* merge(Node* temp1,Node* temp2){
-        Node* dummy=new Node(-1);
-        Node* res=dummy;
+    Node* mergeList(Node* temp1, Node* temp2){
+        //Creating dummy Node
+        Node* dummyNode=new Node(-1);
+        Node* res=dummyNode;
         
         while(temp1&&temp2){
             if(temp1->data<temp2->data){
                 res->bottom=temp1;
-                res=temp1;
                 temp1=temp1->bottom;
-            } else {
+            } else{
                 res->bottom=temp2;
-                res=temp2;
                 temp2=temp2->bottom;
             }
-            res->next=NULL;
-        }
-        //attach remaining nodes
-        res->bottom = temp1 ? temp1 : temp2;
-        
-        return dummy->bottom;
-    }
-    
-    Node* helper(Node* head){
-        if(!head||!head->next){
-            return head;
+            res=res->bottom;
+            res->next=nullptr;
         }
         
-        Node* mergeHead=helper(head->next);
+        //remainning list
+        res->bottom=temp1?temp1:temp2;
         
-        return merge(head,mergeHead);
+        return dummyNode->bottom;
     }
-    
     Node *flatten(Node *root) {
-        // Your code here
+        // code here
         if(!root||!root->next){
             return root;
         }
         
-        return helper(root);
+        Node* mergeRoot=flatten(root->next);
+        
+        return mergeList(root,mergeRoot);
+        
     }
 };
