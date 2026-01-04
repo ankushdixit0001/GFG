@@ -28,7 +28,7 @@ class Solution {
         //     }
         // }
         
-        
+        //dutch national flag algo
         int n=arr.size();
         
         int start=0;
